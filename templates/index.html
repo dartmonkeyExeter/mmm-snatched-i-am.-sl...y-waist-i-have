@@ -1,0 +1,17 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>{{ char_name }}</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='styles/freaky.css') }}">
+</head>
+<body>
+    <img src="{{ url_for('static', filename='images/yoda.png') }}" class="yoda-image" alt="Yoda" id="sliced-yoda">
+    {% for i in range(yoda_meters) %}
+        <img src="{{ url_for('static', filename='images/yoda.png') }}" class="yoda-image" alt="Yoda" id="whole-yoda">
+    {% endfor %}
+
+    {{ char_name }} is {{ yoda_meters }}.{{ yoda_centis }} Yoda's tall. 
+</body>
+</html>
