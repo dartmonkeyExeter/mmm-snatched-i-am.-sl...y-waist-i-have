@@ -1,4 +1,26 @@
+body, html {
+    height: 100%;
+    margin: 0;
+    padding: 0;
+    font-family: 'Roboto', sans-serif;
+    background-color: #f0f0f0;
+}
+
+.yodas-div {
+    background-color: #000;
+    border: #ffbb00 5px solid;
+    border-radius: 2px;
+    width: fit-content;
+}
+
+.translate-div {
+    display: flex;
+    width: fit-content;
+    flex-direction: column; /* Stack Yoda images vertically */
+    align-items: center;
+}
+
 .yoda-image {
     height: 200px;
-    width: auto;
+    width: fit-content;
 }

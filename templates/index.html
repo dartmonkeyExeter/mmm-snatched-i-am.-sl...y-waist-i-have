@@ -4,13 +4,19 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>{{ char_name }}</title>
-    <link rel="stylesheet" href="{{ url_for('static', filename='styles/freaky.css') }}">
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/freaky.css') }}">
 </head>
 <body>
-    <img src="{{ url_for('static', filename='images/yoda.png') }}" class="yoda-image" alt="Yoda" id="sliced-yoda">
-    {% for i in range(yoda_meters) %}
-        <img src="{{ url_for('static', filename='images/yoda.png') }}" class="yoda-image" alt="Yoda" id="whole-yoda">
-    {% endfor %}
+    <div class="yodas-div" style="height: {{ ((yoda_meters * 100) + yoda_centis) * 2 }}px; transform: translateY();">
+        <div class="translate-div">
+            <img src="{{ url_for('static', filename='images/yoda.png') }}" class="yoda-image" alt="Yoda" id="sliced-yoda" 
+            style="clip-path: inset({{ 200 - (yoda_centis * 2) }}px 0 0 0);; 
+            object-fit: cover;">
+            {% for i in range(yoda_meters) %}
+                <img src="{{ url_for('static', filename='images/yoda.png') }}" class="yoda-image" alt="Yoda" id="whole-yoda">
+            {% endfor %}
+        </div>
+    </div>
 
     {{ char_name }} is {{ yoda_meters }}.{{ yoda_centis }} Yoda's tall. 
 </body>

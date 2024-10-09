@@ -34,7 +34,10 @@ app = Flask(__name__)
 def character(id):
     char_name = list(name_yodaheight.items())[id][0]
     yoda_meters = int(str(name_yodaheight[char_name]).split(".")[0])
-    yoda_centis = int(str(name_yodaheight[char_name]).split(".")[1])
+    centis_part = str(name_yodaheight[char_name]).split(".")[1]
+    if len(centis_part) == 1:
+        centis_part += '0'
+    yoda_centis = int(centis_part)
     return render_template('index.html', char_name=char_name, yoda_meters=yoda_meters, yoda_centis=yoda_centis)
 
 @app.route('/')
